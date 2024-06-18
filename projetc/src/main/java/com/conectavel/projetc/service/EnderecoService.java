@@ -1,9 +1,9 @@
-package com.conectavel.api.service;
+package com.conectavel.projetc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.conectavel.api.repository.EnderecoRepository;
+import com.conectavel.projetc.repository.EnderecoRepository;
 
 @Service
 public class EnderecoService {

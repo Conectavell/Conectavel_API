@@ -1,4 +1,4 @@
-package com.conectavel.api.model;
+package com.conectavel.projetc.model;
 
 import java.sql.Date;
 import java.util.List;

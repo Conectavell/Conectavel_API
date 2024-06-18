@@ -1,4 +1,4 @@
-package com.conectavel.api.model;
+package com.conectavel.projetc.model;
 
 import jakarta.persistence.*;
 

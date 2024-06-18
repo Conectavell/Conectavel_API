@@ -1,12 +1,12 @@
-package com.conectavel.api.service;
+package com.conectavel.projetc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.conectavel.api.model.Usuario;
-import com.conectavel.api.repository.UsuarioRepository;
+import com.conectavel.projetc.model.Usuario;
+import com.conectavel.projetc.repository.UsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 

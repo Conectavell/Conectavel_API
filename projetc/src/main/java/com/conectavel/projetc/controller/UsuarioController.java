@@ -1,4 +1,4 @@
-package com.conectavel.api.controller;
+package com.conectavel.projetc.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.conectavel.api.model.Usuario;
-import com.conectavel.api.service.UsuarioService;
+import com.conectavel.projetc.model.Usuario;
+import com.conectavel.projetc.service.UsuarioService;
 
 
 @RestController
