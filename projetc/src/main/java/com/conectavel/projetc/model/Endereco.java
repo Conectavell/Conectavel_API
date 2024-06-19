@@ -1,5 +1,6 @@
 package com.conectavel.projetc.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,25 +9,36 @@ public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEndereco;
-	
+
+	@Column(nullable = false, length = 10)
+	private String cep;
+
 	@Column(nullable = false, length = 30)
 	private String logradouro;
-	
+
 	@Column(nullable = false, length = 30)
 	private String bairro;
-	
+
 	@Column(nullable = false, length = 30)
 	private String complemento;
-	
+
 	@Column(nullable = false, length = 30)
 	private String numero;
-	
+
 	@Column(nullable = false, length = 2)
 	private String uf;
-	
-	@ManyToOne
-	@JoinColumn(name="idUsuario")
+
+	@OneToOne(mappedBy = "endereco")
+	@JsonManagedReference
 	private Usuario usuario;
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
 	public Long getIdEndereco() {
 		return idEndereco;
@@ -34,6 +46,14 @@ public class Endereco {
 
 	public void setIdEndereco(Long idEndereco) {
 		this.idEndereco = idEndereco;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getLogradouro() {
@@ -75,6 +95,6 @@ public class Endereco {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	
-	
+
+
 }
