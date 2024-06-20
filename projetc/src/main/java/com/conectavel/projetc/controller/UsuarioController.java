@@ -22,8 +22,7 @@ public class UsuarioController {
 	public UsuarioController(UsuarioService usuarioService) {
 		this.usuarioService = usuarioService;
 	}
-	
-	
+
 	@PostMapping("/salvarUsuario")
 	public ResponseEntity<UsuarioDto> salvarUsuario(@RequestBody UsuarioDto usuarioDto)
 	{
