@@ -7,5 +7,7 @@ import com.conectavel.projetc.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-	
+	//@Query("SELECT ")
+
+
 }

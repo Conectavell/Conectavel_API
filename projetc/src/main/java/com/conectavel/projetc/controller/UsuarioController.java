@@ -4,10 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import com.conectavel.projetc.dto.UsuarioDto;
-import com.conectavel.projetc.model.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,31 +24,11 @@ public class UsuarioController {
 	}
 	
 	
-	@PostMapping("/setUsuario")
-	public ResponseEntity<Usuario> salvarUsuario(@RequestBody UsuarioDto usuarioDto)
+	@PostMapping("/salvarUsuario")
+	public ResponseEntity<UsuarioDto> salvarUsuario(@RequestBody UsuarioDto usuarioDto)
 	{
-		Usuario novoUsuario = new Usuario();
-		novoUsuario.setNomeUsuario(usuarioDto.getNomeUsuario());
-		novoUsuario.setSobrenomeUsuario(usuarioDto.getSobrenomeUsuario());
-		novoUsuario.setEmailUsuario(usuarioDto.getEmailUsuario());
-		novoUsuario.setSenhaUsuario(usuarioDto.getSenhaUsuario());
-		novoUsuario.setCpfUsuario(usuarioDto.getCpfUsuario());
-		novoUsuario.setDataNascimentoUsuario(usuarioDto.getDataNascimentoUsuario());
-		novoUsuario.setNacionalidadeUsuario(usuarioDto.getNacionalidadeUsuario());
-		novoUsuario.setSexoUsuario(usuarioDto.getSexoUsuario());
-		novoUsuario.setTipoDePerfilUsuario(usuarioDto.getTipoDePerfilUsuario());
-
-		Endereco endereco = new Endereco();
-		endereco.setLogradouro(usuarioDto.getEnderecoDto().getLogradouro());
-		endereco.setBairro(usuarioDto.getEnderecoDto().getBairro());
-		endereco.setComplemento(usuarioDto.getEnderecoDto().getComplemento());
-		endereco.setUf(usuarioDto.getEnderecoDto().getUf());
-		endereco.setNumero(usuarioDto.getEnderecoDto().getNumero());
-
-		novoUsuario.setEndereco(endereco);
-		endereco.setUsuario(novoUsuario);
-
-		return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
+		UsuarioDto usuarioSalvoDto = usuarioService.salvarUsuario(usuarioDto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSalvoDto);
 	}
 	
 	@GetMapping("/usuarios")
