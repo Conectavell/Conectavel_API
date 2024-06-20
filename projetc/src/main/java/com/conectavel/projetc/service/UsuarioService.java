@@ -77,6 +77,10 @@ public class UsuarioService {
 
 		return usuarioSalvoDto;
 	}
+
+	public Long getIdByEmailAndSenha(String email, String senha){
+		return usuarioRepository.findIdByEmailAndSenha(email, senha);
+	}
 	
 	public List<Usuario> getAllUsuarios(){
 		return usuarioRepository.findAll();

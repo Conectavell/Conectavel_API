@@ -3,6 +3,7 @@ package com.conectavel.projetc.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.conectavel.projetc.dto.LoginRequest;
 import com.conectavel.projetc.dto.UsuarioDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import com.conectavel.projetc.service.UsuarioService;
 
 @RestController
 @RequestMapping("/API")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UsuarioController {
 	private final UsuarioService usuarioService;
 	
@@ -53,5 +55,14 @@ public class UsuarioController {
 		usuarioService.deletarUsuario(id);
 		return ResponseEntity.ok("Usuario deletado com sucesso!");
 	}
-	
+
+	@PostMapping("/login")
+	public ResponseEntity<Long> loginUsuario(@RequestBody LoginRequest loginRequest){
+		Long idUsuario = usuarioService.getIdByEmailAndSenha(loginRequest.getEmail(), loginRequest.getSenha());
+		if(idUsuario != null){
+			return ResponseEntity.ok(idUsuario);
+		}
+		return ResponseEntity.status(401).build();
+	}
+
 }

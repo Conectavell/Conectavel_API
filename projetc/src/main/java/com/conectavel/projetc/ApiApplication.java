@@ -13,19 +13,6 @@ public class ApiApplication {
 		SpringApplication.run(ApiApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**") // Permite o acesso a todos os endpoints da API
-						.allowedOrigins("http://localhost:5173") // Sua aplicação web
-						.allowedMethods("GET", "POST", "PUT", "DELETE") // Métodos permitidos
-						.allowedHeaders("*") // Permite todos os cabeçalhos (ou especifique os necessários)
-						.allowCredentials(true); // Permite o envio de credenciais (cookies, autorização)
-			}
-		};
-	}
 }
 
 
