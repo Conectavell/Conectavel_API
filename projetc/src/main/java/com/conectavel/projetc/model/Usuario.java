@@ -143,12 +143,14 @@ public class Usuario {
 		this.tipoPerfil = tipoPerfil;
 	}
 
-	public String getSobreUsuario() {
-		return sobreUsuario;
+
+
+	public String getFotoPerfilPath() {
+		return fotoPerfilPath;
 	}
 
-	public void setSobreUsuario(String sobreUsuario) {
-		this.sobreUsuario = sobreUsuario;
+	public void setFotoPerfilPath(String fotoPerfilPath) {
+		this.fotoPerfilPath = fotoPerfilPath;
 	}
 
 	public String getExperienciaUsuario() {
@@ -159,11 +161,11 @@ public class Usuario {
 		this.experienciaUsuario = experienciaUsuario;
 	}
 
-	public String getFotoPerfilPath() {
-		return fotoPerfilPath;
+	public String getSobreUsuario() {
+		return sobreUsuario;
 	}
 
-	public void setFotoPerfilPath(String fotoPerfilPath) {
-		this.fotoPerfilPath = fotoPerfilPath;
+	public void setSobreUsuario(String sobreUsuario) {
+		this.sobreUsuario = sobreUsuario;
 	}
 }

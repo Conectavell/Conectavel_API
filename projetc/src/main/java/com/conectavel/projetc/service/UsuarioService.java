@@ -41,6 +41,9 @@ public class UsuarioService {
 		novoUsuario.setDataNascimentoUsuario(usuarioDto.getDataNascimentoUsuario());
 		novoUsuario.setNacionalidadeUsuario(usuarioDto.getNacionalidadeUsuario());
 		novoUsuario.setSexoUsuario(usuarioDto.getSexoUsuario());
+
+		novoUsuario.setSobreUsuario(usuarioDto.getSobreUsuario());
+		novoUsuario.setExperienciaUsuario(usuarioDto.getExperienciaUsuario());
 		//novoUsuario.setTipoDePerfilUsuario(usuarioDto.getTipoDePerfilUsuario());
 		//novoUsuario.setTipoPerfil(usuarioDto.getTipoDePerfilUsuario());
 
@@ -73,6 +76,9 @@ public class UsuarioService {
 		usuarioSalvoDto.setNacionalidadeUsuario(usuarioSalvo.getNacionalidadeUsuario());
 		usuarioSalvoDto.setSexoUsuario(usuarioSalvo.getSexoUsuario());
 		usuarioSalvoDto.setTipoDePerfilUsuario(usuarioSalvo.getTipoPerfil());
+
+		usuarioSalvoDto.setSobreUsuario(usuarioDto.getSobreUsuario());
+		usuarioSalvoDto.setExperienciaUsuario(usuarioDto.getExperienciaUsuario());
 
 		if (usuarioSalvo.getEndereco() != null) {
 			EnderecoDto enderecoDto = new EnderecoDto();
