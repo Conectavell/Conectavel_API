@@ -1,7 +1,6 @@
 package com.conectavel.projetc.model;
 
 import java.sql.Date;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -16,8 +15,10 @@ public class Usuario {
 	@Column(nullable = false, length = 30)
 	private String nacionalidadeUsuario;
 
-	@Column(nullable = false)
-	private String tipoDePerfilUsuario;
+	@OneToOne
+	@JoinColumn(name="tipoPerfilId", nullable = false)
+	@JsonManagedReference
+	private TipoPerfil tipoPerfil;
 
 	@Column(nullable = false, length = 60)
 	private String nomeUsuario;
@@ -45,6 +46,9 @@ public class Usuario {
 
 	@Column(nullable = true, length = 120)
 	private String experienciaUsuario;
+
+	@Column(nullable = true, length = 255)
+	private String fotoPerfilPath;
 
 	@OneToOne(cascade = CascadeType.ALL) //@OneToOne: Define um relacionamento um para um entre Usuario e Endereco.
 	@JoinColumn(name="idEndereco") //  @JoinColumn(name = "idEndereco"): Especifica que a coluna idEndereco na tabela Usuario será usada como chave estrangeira para associar o Usuario ao Endereco.
@@ -131,15 +135,35 @@ public class Usuario {
 		this.nacionalidadeUsuario = nacionalidadeUsuario;
 	}
 
-	public String getTipoDePerfilUsuario() {
-		return tipoDePerfilUsuario;
+	public Long getTipoPerfil() {
+		return tipoPerfil.getIdTipoPerfil();
 	}
 
-	public void setTipoDePerfilUsuario(String tipoDePerfilUsuario) {
-		this.tipoDePerfilUsuario = tipoDePerfilUsuario;
+	public void setTipoPerfil(TipoPerfil tipoPerfil) {
+		this.tipoPerfil = tipoPerfil;
 	}
 
+	public String getSobreUsuario() {
+		return sobreUsuario;
+	}
 
+	public void setSobreUsuario(String sobreUsuario) {
+		this.sobreUsuario = sobreUsuario;
+	}
 
+	public String getExperienciaUsuario() {
+		return experienciaUsuario;
+	}
 
+	public void setExperienciaUsuario(String experienciaUsuario) {
+		this.experienciaUsuario = experienciaUsuario;
+	}
+
+	public String getFotoPerfilPath() {
+		return fotoPerfilPath;
+	}
+
+	public void setFotoPerfilPath(String fotoPerfilPath) {
+		this.fotoPerfilPath = fotoPerfilPath;
+	}
 }

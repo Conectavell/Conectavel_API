@@ -1,5 +1,7 @@
 package com.conectavel.projetc.dto;
 
+import com.conectavel.projetc.model.TipoPerfil;
+
 import java.sql.Date;
 
 public class UsuarioDto {
@@ -12,7 +14,7 @@ public class UsuarioDto {
     private Date dataNascimentoUsuario;
     private char sexoUsuario;
     private String nacionalidadeUsuario;
-    private String tipoDePerfilUsuario;
+    private Long tipoDePerfilUsuario;
     private EnderecoDto enderecoDto;
 
     public String getNomeUsuario() {
@@ -79,11 +81,11 @@ public class UsuarioDto {
         this.nacionalidadeUsuario = nacionalidadeUsuario;
     }
 
-    public String getTipoDePerfilUsuario() {
+    public Long getTipoDePerfilUsuario() {
         return tipoDePerfilUsuario;
     }
 
-    public void setTipoDePerfilUsuario(String tipoDePerfilUsuario) {
+    public void setTipoDePerfilUsuario(Long tipoDePerfilUsuario) {
         this.tipoDePerfilUsuario = tipoDePerfilUsuario;
     }
 

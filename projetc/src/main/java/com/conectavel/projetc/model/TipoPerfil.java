@@ -1,5 +1,6 @@
 package com.conectavel.projetc.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,16 @@ public class TipoPerfil {
 
     @Column(nullable = false, length = 20)
     private String descricaoTipoPerfil;
+
+
+    public TipoPerfil() {
+    }
+
+    public TipoPerfil(String nomeTipoPerfil, String descricaoTipoPerfil) {
+        this.nomeTipoPerfil = nomeTipoPerfil;
+        this.descricaoTipoPerfil = descricaoTipoPerfil;
+    }
+
 
     public Long getIdTipoPerfil() {
         return idTipoPerfil;

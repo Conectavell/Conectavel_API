@@ -3,6 +3,8 @@ package com.conectavel.projetc.service;
 import com.conectavel.projetc.dto.EnderecoDto;
 import com.conectavel.projetc.dto.UsuarioDto;
 import com.conectavel.projetc.model.Endereco;
+import com.conectavel.projetc.model.TipoPerfil;
+import com.conectavel.projetc.repository.TipoPerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,9 @@ public class UsuarioService {
 	public UsuarioService(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
+
+	@Autowired
+	private TipoPerfilRepository tipoPerfilRepository;
 	
 	public UsuarioDto salvarUsuario(UsuarioDto usuarioDto)
 	{
@@ -36,7 +41,12 @@ public class UsuarioService {
 		novoUsuario.setDataNascimentoUsuario(usuarioDto.getDataNascimentoUsuario());
 		novoUsuario.setNacionalidadeUsuario(usuarioDto.getNacionalidadeUsuario());
 		novoUsuario.setSexoUsuario(usuarioDto.getSexoUsuario());
-		novoUsuario.setTipoDePerfilUsuario(usuarioDto.getTipoDePerfilUsuario());
+		//novoUsuario.setTipoDePerfilUsuario(usuarioDto.getTipoDePerfilUsuario());
+		//novoUsuario.setTipoPerfil(usuarioDto.getTipoDePerfilUsuario());
+
+		TipoPerfil tipoPerfil = tipoPerfilRepository.findById(usuarioDto.getTipoDePerfilUsuario())
+				.orElseThrow(() -> new IllegalArgumentException("Invalid TipoPerfil ID: " + usuarioDto.getTipoDePerfilUsuario()));
+		novoUsuario.setTipoPerfil(tipoPerfil);
 
 		if (usuarioDto.getEnderecoDto() != null) {
 			Endereco endereco = new Endereco();
@@ -62,7 +72,7 @@ public class UsuarioService {
 		usuarioSalvoDto.setDataNascimentoUsuario(usuarioSalvo.getDataNascimentoUsuario());
 		usuarioSalvoDto.setNacionalidadeUsuario(usuarioSalvo.getNacionalidadeUsuario());
 		usuarioSalvoDto.setSexoUsuario(usuarioSalvo.getSexoUsuario());
-		usuarioSalvoDto.setTipoDePerfilUsuario(usuarioSalvo.getTipoDePerfilUsuario());
+		usuarioSalvoDto.setTipoDePerfilUsuario(usuarioSalvo.getTipoPerfil());
 
 		if (usuarioSalvo.getEndereco() != null) {
 			EnderecoDto enderecoDto = new EnderecoDto();
