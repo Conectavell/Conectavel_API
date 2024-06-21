@@ -139,7 +139,20 @@ public class Usuario {
 		this.tipoDePerfilUsuario = tipoDePerfilUsuario;
 	}
 
+	public String getSobreUsuario() {
+		return sobreUsuario;
+	}
 
+	public void setSobreUsuario(String sobreUsuario) {
+		this.sobreUsuario = sobreUsuario;
+	}
 
+	public String getExperienciaUsuario() {
+		return experienciaUsuario;
+	}
+
+	public void setExperienciaUsuario(String experienciaUsuario) {
+		this.experienciaUsuario = experienciaUsuario;
+	}
 
 }

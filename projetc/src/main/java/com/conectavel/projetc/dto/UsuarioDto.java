@@ -1,5 +1,7 @@
 package com.conectavel.projetc.dto;
 
+import jakarta.persistence.Column;
+
 import java.sql.Date;
 
 public class UsuarioDto {
@@ -14,6 +16,8 @@ public class UsuarioDto {
     private String nacionalidadeUsuario;
     private String tipoDePerfilUsuario;
     private EnderecoDto enderecoDto;
+    private String sobreUsuario;
+    private String experienciaUsuario;
 
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -93,5 +97,20 @@ public class UsuarioDto {
 
     public void setEnderecoDto(EnderecoDto enderecoDto) {
         this.enderecoDto = enderecoDto;
+    }
+    public String getSobreUsuario() {
+        return sobreUsuario;
+    }
+
+    public void setSobreUsuario(String sobreUsuario) {
+        this.sobreUsuario = sobreUsuario;
+    }
+
+    public String getExperienciaUsuario() {
+        return experienciaUsuario;
+    }
+
+    public void setExperienciaUsuario(String experienciaUsuario) {
+        this.experienciaUsuario = experienciaUsuario;
     }
 }
