@@ -40,6 +40,12 @@ public class Usuario {
 	@Column(nullable = false)
 	private char sexoUsuario;
 
+	@Column(nullable = true, length = 120)
+	private String sobreUsuario;
+
+	@Column(nullable = true, length = 120)
+	private String experienciaUsuario;
+
 	@OneToOne(cascade = CascadeType.ALL) //@OneToOne: Define um relacionamento um para um entre Usuario e Endereco.
 	@JoinColumn(name="idEndereco") //  @JoinColumn(name = "idEndereco"): Especifica que a coluna idEndereco na tabela Usuario será usada como chave estrangeira para associar o Usuario ao Endereco.
 	@JsonManagedReference // evita loop em postman
