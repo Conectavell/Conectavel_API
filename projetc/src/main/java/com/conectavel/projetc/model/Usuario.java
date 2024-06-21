@@ -15,7 +15,7 @@ public class Usuario {
 	@Column(nullable = false, length = 30)
 	private String nacionalidadeUsuario;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="tipoPerfilId", nullable = false)
 	@JsonManagedReference
 	private TipoPerfil tipoPerfil;
