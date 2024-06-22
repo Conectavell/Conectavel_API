@@ -16,7 +16,7 @@ import com.conectavel.projetc.service.UsuarioService;
 
 @RestController
 @RequestMapping("/API")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin("http://localhost:5173")
 public class UsuarioController {
 	private final UsuarioService usuarioService;
 	
