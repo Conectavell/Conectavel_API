@@ -56,13 +56,5 @@ public class UsuarioController {
 		return ResponseEntity.ok("Usuario deletado com sucesso!");
 	}
 
-	@PostMapping("/login")
-	public ResponseEntity<Long> loginUsuario(@RequestBody LoginRequest loginRequest){
-		Long idUsuario = usuarioService.getIdByEmailAndSenha(loginRequest.getEmail(), loginRequest.getSenha());
-		if(idUsuario != null){
-			return ResponseEntity.ok(idUsuario);
-		}
-		return ResponseEntity.status(401).build();
-	}
 
 }
