@@ -56,5 +56,13 @@ public class UsuarioController {
 		return ResponseEntity.ok("Usuario deletado com sucesso!");
 	}
 
+	@GetMapping("/contarUsuarios")
+	public long contarUsuarios() {
+		return usuarioService.countUsuarios();
+	}
 
+	@GetMapping("/contarUsuarioFiltrado/{tipoPerfil}")
+	public long contarUsuariosPorTipoDePerfil(@PathVariable Long tipoPerfil){
+		return usuarioService.contarUsuariosPorTipoDePerfil(tipoPerfil);
+	}
 }
