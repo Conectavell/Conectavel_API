@@ -25,7 +25,7 @@ public class PontosController {
         this.pontosService = pontosService;
     }
 
-    @PostMapping("SalvarPonto")
+    @PostMapping("/SalvarPonto")
     public ResponseEntity<PontoDescarteDto> salvarPonto(@RequestBody PontoDescarteDto pontoDescarteDto){
         PontoDescarteDto pontoSalvoDto = pontosService.salvarPontoDeDescarte(pontoDescarteDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(pontoSalvoDto);
