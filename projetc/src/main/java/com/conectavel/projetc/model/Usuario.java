@@ -35,6 +35,9 @@ public class Usuario {
 	@Column(nullable = false, length = 30, unique=true)
 	private String cpfUsuario;
 
+	@Column(nullable = false, length = 30, unique = true)
+	private String celularUsuario;
+
 	@Column(nullable = false)
 	private Date dataNascimentoUsuario;
 
@@ -48,7 +51,7 @@ public class Usuario {
 	private String experienciaUsuario;
 
 	@Column(nullable = true, length = 255)
-	private String fotoPerfilPath;
+	private String fotoPerfilPath = "'./assets/fotosUsuarios/Profile.jpeg'";
 
 	@OneToOne(cascade = CascadeType.ALL) //@OneToOne: Define um relacionamento um para um entre Usuario e Endereco.
 	@JoinColumn(name="idEndereco") //  @JoinColumn(name = "idEndereco"): Especifica que a coluna idEndereco na tabela Usuario será usada como chave estrangeira para associar o Usuario ao Endereco.
@@ -93,6 +96,14 @@ public class Usuario {
 
 	public void setEmailUsuario(String emailUsuario) {
 		this.emailUsuario = emailUsuario;
+	}
+
+	public String getCelularUsuario() {
+		return celularUsuario;
+	}
+
+	public void setCelularUsuario(String celularUsuario) {
+		this.celularUsuario = celularUsuario;
 	}
 
 	public String getSenhaUsuario() {
