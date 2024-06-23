@@ -1,5 +1,6 @@
 package com.conectavel.projetc.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -29,7 +30,7 @@ public class Endereco {
 	private String uf;
 
 	@OneToOne(mappedBy = "endereco")
-	@JsonManagedReference
+	@JsonBackReference
 	private Usuario usuario;
 
 	public String getCep() {

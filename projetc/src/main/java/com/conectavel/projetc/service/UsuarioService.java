@@ -29,6 +29,14 @@ public class UsuarioService {
 
 	@Autowired
 	private TipoPerfilRepository tipoPerfilRepository;
+
+	public Long countUsuarios() {
+		return usuarioRepository.count();
+	}
+
+	public long contarUsuariosPorTipoDePerfil(Long tipoPerfil) {
+		return usuarioRepository.countByProfileType(tipoPerfil);
+	}
 	
 	public UsuarioDto salvarUsuario(UsuarioDto usuarioDto)
 	{

@@ -16,7 +16,7 @@ import com.conectavel.projetc.service.UsuarioService;
 
 @RestController
 @RequestMapping("/API")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin("http://localhost:5173")
 public class UsuarioController {
 	private final UsuarioService usuarioService;
 	
@@ -56,13 +56,13 @@ public class UsuarioController {
 		return ResponseEntity.ok("Usuario deletado com sucesso!");
 	}
 
-	@PostMapping("/login")
-	public ResponseEntity<Long> loginUsuario(@RequestBody LoginRequest loginRequest){
-		Long idUsuario = usuarioService.getIdByEmailAndSenha(loginRequest.getEmail(), loginRequest.getSenha());
-		if(idUsuario != null){
-			return ResponseEntity.ok(idUsuario);
-		}
-		return ResponseEntity.status(401).build();
+	@GetMapping("/contarUsuarios")
+	public long contarUsuarios() {
+		return usuarioService.countUsuarios();
 	}
 
+	@GetMapping("/contarUsuarioFiltrado/{tipoPerfil}")
+	public long contarUsuariosPorTipoDePerfil(@PathVariable Long tipoPerfil){
+		return usuarioService.contarUsuariosPorTipoDePerfil(tipoPerfil);
+	}
 }
