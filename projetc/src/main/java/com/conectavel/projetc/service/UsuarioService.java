@@ -57,6 +57,7 @@ public class UsuarioService {
 				.orElseThrow(() -> new IllegalArgumentException("Invalid TipoPerfil ID: " + usuarioDto.getTipoDePerfilUsuario()));
 		novoUsuario.setTipoPerfil(tipoPerfil);
 
+
 		if (usuarioDto.getEnderecoDto() != null) {
 			Endereco endereco = new Endereco();
 			endereco.setLogradouro(usuarioDto.getEnderecoDto().getLogradouro());

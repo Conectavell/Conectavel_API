@@ -25,6 +25,11 @@ public class UsuarioController {
 		this.usuarioService = usuarioService;
 	}
 
+	@GetMapping("")
+	public ResponseEntity<String> PaginaOi(){
+		return ResponseEntity.status(HttpStatus.CREATED).body("Oi");
+	}
+
 	@PostMapping("/salvarUsuario")
 	public ResponseEntity<UsuarioDto> salvarUsuario(@RequestBody UsuarioDto usuarioDto)
 	{
