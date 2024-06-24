@@ -10,6 +10,7 @@ public class UsuarioDto {
     private String nomeUsuario;
     private String sobrenomeUsuario;
     private String emailUsuario;
+    private String celularUsuario;
     private String senhaUsuario;
     private String cpfUsuario;
     private Date dataNascimentoUsuario;
@@ -42,6 +43,14 @@ public class UsuarioDto {
 
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
+    }
+
+    public String getCelularUsuario() {
+        return celularUsuario;
+    }
+
+    public void setCelularUsuario(String celularUsuario) {
+        this.celularUsuario = celularUsuario;
     }
 
     public String getSenhaUsuario() {

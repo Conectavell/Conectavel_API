@@ -65,4 +65,10 @@ public class UsuarioController {
 	public long contarUsuariosPorTipoDePerfil(@PathVariable Long tipoPerfil){
 		return usuarioService.contarUsuariosPorTipoDePerfil(tipoPerfil);
 	}
+
+	@PutMapping("/{id}/atualizarEmail")
+	public ResponseEntity<Void> atualizarEmail(@PathVariable Long id, @RequestParam String novoEmail){
+		usuarioService.atualizarEmailUsuario(id, novoEmail);
+		return ResponseEntity.noContent().build();
+	}
 }

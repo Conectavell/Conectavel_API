@@ -45,6 +45,7 @@ public class UsuarioService {
 		novoUsuario.setSobrenomeUsuario(usuarioDto.getSobrenomeUsuario());
 		novoUsuario.setEmailUsuario(usuarioDto.getEmailUsuario());
 		novoUsuario.setSenhaUsuario(usuarioDto.getSenhaUsuario());
+		novoUsuario.setCelularUsuario((usuarioDto.getCelularUsuario()));
 		novoUsuario.setCpfUsuario(usuarioDto.getCpfUsuario());
 		novoUsuario.setDataNascimentoUsuario(usuarioDto.getDataNascimentoUsuario());
 		novoUsuario.setNacionalidadeUsuario(usuarioDto.getNacionalidadeUsuario());
@@ -79,6 +80,7 @@ public class UsuarioService {
 		usuarioSalvoDto.setSobrenomeUsuario(usuarioSalvo.getSobrenomeUsuario());
 		usuarioSalvoDto.setEmailUsuario(usuarioSalvo.getEmailUsuario());
 		usuarioSalvoDto.setSenhaUsuario(usuarioSalvo.getSenhaUsuario());
+		usuarioSalvoDto.setCelularUsuario(usuarioSalvo.getCelularUsuario());
 		usuarioSalvoDto.setCpfUsuario(usuarioSalvo.getCpfUsuario());
 		usuarioSalvoDto.setDataNascimentoUsuario(usuarioSalvo.getDataNascimentoUsuario());
 		usuarioSalvoDto.setNacionalidadeUsuario(usuarioSalvo.getNacionalidadeUsuario());
@@ -100,6 +102,10 @@ public class UsuarioService {
 		}
 
 		return usuarioSalvoDto;
+	}
+
+	public void atualizarEmailUsuario(Long id, String novoEmail){
+		usuarioRepository.setEmailUsuarioById(novoEmail, id);
 	}
 
 	public Long getIdByEmailAndSenha(String email, String senha){
