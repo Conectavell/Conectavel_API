@@ -7,12 +7,11 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	@Query("SELECT idUsuario from Usuario WHERE emailUsuario = :email AND senhaUsuario = :senha")
+    @Query("SELECT idUsuario from Usuario WHERE emailUsuario = :email AND senhaUsuario = :senha")
     Long findIdByEmailAndSenha(@Param("email") String email, @Param("senha") String senha);
 
     Usuario findByEmailUsuarioAndSenhaUsuario(String emailUsuario, String senhaUsuario);
@@ -24,4 +23,46 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Transactional
     @Query("UPDATE Usuario u SET emailUsuario = :email WHERE u.idUsuario = :id")
     void setEmailUsuarioById(@Param("email") String email, @Param("id") Long tipo);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET nomeUsuario = :nome WHERE u.idUsuario = :id")
+    void setNomeUsuarioById(@Param("nome") String nome, @Param("id") Long tipo);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET sobrenomeUsuario = :sobrenome WHERE u.idUsuario = :id")
+    void setSobrenomeUsuarioById(@Param("sobrenome") String sobrenome, @Param("id") Long tipo);
+/////
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET senhaUsuario = :senha WHERE u.idUsuario = :id")
+    void setSenhaUsuarioById(@Param("senha") String senha, @Param("id") Long tipo);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET experienciaUsuario = :experiencia WHERE u.idUsuario = :id")
+    void setExperienciaUsuarioById(@Param("experiencia") String experiencia, @Param("id") Long tipo);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET fotoPerfilPath = :foto WHERE u.idUsuario = :id")
+    void setFotoUsuarioById(@Param("foto") String foto, @Param("id") Long tipo);
+
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET sobreUsuario = :sobre WHERE u.idUsuario = :id")
+    void setSobreUsuarioById(@Param("sobre") String sobre, @Param("id") Long tipo);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u SET habilidadeUsuario = :habilidade WHERE u.idUsuario = :id")
+    void setHabilidadeUsuarioById(@Param("habilidade") String habilidade, @Param("id") Long tipo);
+
+
+
 }
+
+

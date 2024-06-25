@@ -20,6 +20,7 @@ public class UsuarioDto {
     private String sobreUsuario;
     private String experienciaUsuario;
     private EnderecoDto enderecoDto;
+    private String fotoPerfilPath;
 
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -123,5 +124,13 @@ public class UsuarioDto {
 
     public void setExperienciaUsuario(String experienciaUsuario) {
         this.experienciaUsuario = experienciaUsuario;
+    }
+
+    public String getFotoPerfilPath() {
+        return fotoPerfilPath;
+    }
+
+    public void setFotoPerfilPath(String fotoPerfilPath) {
+        this.fotoPerfilPath = fotoPerfilPath;
     }
 }

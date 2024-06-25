@@ -50,6 +50,9 @@ public class Usuario {
 	@Column(nullable = true, length = 120)
 	private String experienciaUsuario;
 
+	@Column(nullable = true, length = 120)
+	private String habilidadeUsuario;
+
 	@Column(nullable = true, length = 255)
 	private String fotoPerfilPath = "'./assets/fotosUsuarios/Profile.jpeg'";
 
@@ -178,5 +181,13 @@ public class Usuario {
 
 	public void setSobreUsuario(String sobreUsuario) {
 		this.sobreUsuario = sobreUsuario;
+	}
+
+	public String getHabilidadeUsuario() {
+		return habilidadeUsuario;
+	}
+
+	public void setHabilidadeUsuario(String habilidadeUsuario) {
+		this.habilidadeUsuario = habilidadeUsuario;
 	}
 }
