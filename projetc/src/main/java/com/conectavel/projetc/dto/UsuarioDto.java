@@ -1,6 +1,7 @@
 package com.conectavel.projetc.dto;
 
 import com.conectavel.projetc.model.TipoPerfil;
+import jakarta.persistence.Column;
 
 import java.sql.Date;
 
@@ -16,7 +17,10 @@ public class UsuarioDto {
     private char sexoUsuario;
     private String nacionalidadeUsuario;
     private Long tipoDePerfilUsuario;
+    private String sobreUsuario;
+    private String experienciaUsuario;
     private EnderecoDto enderecoDto;
+    private String fotoPerfilPath;
 
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -104,5 +108,29 @@ public class UsuarioDto {
 
     public void setEnderecoDto(EnderecoDto enderecoDto) {
         this.enderecoDto = enderecoDto;
+    }
+
+    public String getSobreUsuario() {
+        return sobreUsuario;
+    }
+
+    public void setSobreUsuario(String sobreUsuario) {
+        this.sobreUsuario = sobreUsuario;
+    }
+
+    public String getExperienciaUsuario() {
+        return experienciaUsuario;
+    }
+
+    public void setExperienciaUsuario(String experienciaUsuario) {
+        this.experienciaUsuario = experienciaUsuario;
+    }
+
+    public String getFotoPerfilPath() {
+        return fotoPerfilPath;
+    }
+
+    public void setFotoPerfilPath(String fotoPerfilPath) {
+        this.fotoPerfilPath = fotoPerfilPath;
     }
 }
