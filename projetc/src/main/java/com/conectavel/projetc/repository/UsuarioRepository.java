@@ -50,7 +50,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query("UPDATE Usuario u SET fotoPerfilPath = :foto WHERE u.idUsuario = :id")
     void setFotoUsuarioById(@Param("foto") String foto, @Param("id") Long tipo);
 
-
     @Modifying
     @Transactional
     @Query("UPDATE Usuario u SET sobreUsuario = :sobre WHERE u.idUsuario = :id")
@@ -60,8 +59,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Transactional
     @Query("UPDATE Usuario u SET habilidadeUsuario = :habilidade WHERE u.idUsuario = :id")
     void setHabilidadeUsuarioById(@Param("habilidade") String habilidade, @Param("id") Long tipo);
-
-
 
 }
 
