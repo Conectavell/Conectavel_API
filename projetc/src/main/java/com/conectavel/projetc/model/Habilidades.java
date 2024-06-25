@@ -21,6 +21,9 @@ public class Habilidades {
     @ManyToMany(mappedBy = "habilidades")
     private List<Usuario> usuario;
 
+    public Habilidades() {
+    }
+
     public Habilidades(String nomeHabilidade, String descricaoHabilidade) {
         this.nomeHabilidade = nomeHabilidade;
         this.descricaoHabilidade = descricaoHabilidade;
