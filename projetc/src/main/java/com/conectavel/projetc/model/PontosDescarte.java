@@ -13,10 +13,10 @@ public class PontosDescarte {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPontosDescarte;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 20, scale = 10)
     private BigDecimal LatitudePonto;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 20, scale = 10)
     private BigDecimal LongitudePonto;
 
     @Column(nullable = false, length = 20)
