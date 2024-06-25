@@ -3,7 +3,9 @@ package com.conectavel.projetc.service;
 import com.conectavel.projetc.dto.EnderecoDto;
 import com.conectavel.projetc.dto.UsuarioDto;
 import com.conectavel.projetc.model.Endereco;
+import com.conectavel.projetc.model.Habilidades;
 import com.conectavel.projetc.model.TipoPerfil;
+import com.conectavel.projetc.repository.HabilidadesRepository;
 import com.conectavel.projetc.repository.TipoPerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +17,10 @@ import com.conectavel.projetc.repository.UsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
@@ -29,6 +33,9 @@ public class UsuarioService {
 
 	@Autowired
 	private TipoPerfilRepository tipoPerfilRepository;
+
+	@Autowired
+	private HabilidadesRepository habilidadesRepository;
 
 	public Long countUsuarios() {
 		return usuarioRepository.count();
@@ -57,6 +64,17 @@ public class UsuarioService {
 				.orElseThrow(() -> new IllegalArgumentException("Invalid TipoPerfil ID: " + usuarioDto.getTipoDePerfilUsuario()));
 		novoUsuario.setTipoPerfil(tipoPerfil);
 
+		/*Habilidades habilidades = habilidadesRepository.findById(usuarioDto.getHabilidades()).orElseThrow(() -> new IllegalArgumentException("Invalid Habilidade ID: "+ usuarioDto.getHabilidades()));
+		novoUsuario.setHabilidades(habilidades);*/
+
+		List<Habilidades> habilidadesList = new ArrayList<>();
+		for(Long idHabilidade : usuarioDto.getHabilidades()){
+			Habilidades habilidades = habilidadesRepository.findById(idHabilidade)
+					.orElseThrow(() -> new IllegalArgumentException("Invalid habilidade ID: "+ idHabilidade));
+			habilidadesList.add(habilidades);
+		}
+
+		novoUsuario.setHabilidades(habilidadesList);
 
 		if (usuarioDto.getEnderecoDto() != null) {
 			Endereco endereco = new Endereco();
@@ -84,6 +102,11 @@ public class UsuarioService {
 		usuarioSalvoDto.setNacionalidadeUsuario(usuarioSalvo.getNacionalidadeUsuario());
 		usuarioSalvoDto.setSexoUsuario(usuarioSalvo.getSexoUsuario());
 		usuarioSalvoDto.setTipoDePerfilUsuario(usuarioSalvo.getTipoPerfil());
+
+		List<Long> habilidadesIds = usuarioSalvo.getHabilidades().stream()
+				.map(Habilidades::getIdHabilidade)
+				.collect(Collectors.toList());
+		usuarioSalvoDto.setHabilidades(habilidadesIds);
 
 		if (usuarioSalvo.getEndereco() != null) {
 			EnderecoDto enderecoDto = new EnderecoDto();
