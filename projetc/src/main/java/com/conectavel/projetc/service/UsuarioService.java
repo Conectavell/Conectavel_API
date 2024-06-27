@@ -57,8 +57,6 @@ public class UsuarioService {
 		novoUsuario.setDataNascimentoUsuario(usuarioDto.getDataNascimentoUsuario());
 		novoUsuario.setNacionalidadeUsuario(usuarioDto.getNacionalidadeUsuario());
 		novoUsuario.setSexoUsuario(usuarioDto.getSexoUsuario());
-		//novoUsuario.setTipoDePerfilUsuario(usuarioDto.getTipoDePerfilUsuario());
-		//novoUsuario.setTipoPerfil(usuarioDto.getTipoDePerfilUsuario());
 
 		TipoPerfil tipoPerfil = tipoPerfilRepository.findById(usuarioDto.getTipoDePerfilUsuario())
 				.orElseThrow(() -> new IllegalArgumentException("Invalid TipoPerfil ID: " + usuarioDto.getTipoDePerfilUsuario()));
@@ -202,4 +200,31 @@ public class UsuarioService {
 		usuarioRepository.deleteById(id);
 		return ResponseEntity.ok("Usuario removido com sucesso...");
 	}
+
+
+    public void atualizarSobrenomeUsuario(Long id, String novoSobrenome) {
+        usuarioRepository.setSobrenomeUsuarioById(novoSobrenome, id);
+    }
+    public void atualizarNomeUsuario(Long id, String novoNomeUsuario) {
+        usuarioRepository.setNomeUsuarioById(novoNomeUsuario, id);
+    }
+
+    public void atualizarSenhaUsuario(Long id, String novaSenhaUsuario){
+        usuarioRepository.setSenhaUsuarioById(novaSenhaUsuario, id);
+    }
+
+    public void atualizarExperienciaUsuario(Long id, String novaExperienciaUsuario) {
+        usuarioRepository.setExperienciaUsuarioById(novaExperienciaUsuario, id);
+    }
+
+    public void atualizarFotoUsuario(Long id, String novaFotoUsuario) {
+        usuarioRepository.setFotoUsuarioById(novaFotoUsuario, id);
+    }
+    public void atualizarSobreUsuario(Long id, String novoSobreUsuario) {
+        usuarioRepository.setSobreUsuarioById(novoSobreUsuario, id);
+    }
+
+    public void atualizarHabilidadeUsuario(Long id, String novaHabilidadeUsuario) {
+        usuarioRepository.setHabilidadeUsuarioById(novaHabilidadeUsuario, id);
+    }
 }

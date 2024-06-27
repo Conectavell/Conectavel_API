@@ -76,4 +76,46 @@ public class UsuarioController {
 		usuarioService.atualizarEmailUsuario(id, novoEmail);
 		return ResponseEntity.noContent().build();
 	}
+
+    @PutMapping("/{id}/atualizarNome")
+    public ResponseEntity<Void> atualizarNomeUsuario(@PathVariable Long id, @RequestParam String novoNome) {
+        usuarioService.atualizarNomeUsuario(id, novoNome);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarSobrenome")
+    public ResponseEntity<Void> atualizarSobrenomeUsuario(@PathVariable Long id, @RequestParam String novoSobrenome) {
+        usuarioService.atualizarSobrenomeUsuario(id, novoSobrenome);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarSenha")
+    public ResponseEntity<Void> atualizarSenhaUsuario(@PathVariable Long id, @RequestParam String novaSenha) {
+        usuarioService.atualizarSenhaUsuario(id, novaSenha);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarExperiencia")
+    public ResponseEntity<Void> atualizarExperienciaUsuario(@PathVariable Long id, @RequestParam String novaExperiencia) {
+        usuarioService.atualizarExperienciaUsuario(id, novaExperiencia);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarFoto")
+    public ResponseEntity<Void> atualizarFotoUsuario(@PathVariable Long id, @RequestParam String novaFoto) {
+        usuarioService.atualizarFotoUsuario(id, novaFoto);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarSobre")
+    public ResponseEntity<Void> atualizarSobreUsuario(@PathVariable Long id, @RequestParam String novoSobre) {
+        usuarioService.atualizarSobreUsuario(id, novoSobre);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}/atualizarHabilidade")
+    public ResponseEntity<Void> atualizarHabilidadeUsuario(@PathVariable Long id, @RequestParam String novaHabilidade) {
+        usuarioService.atualizarHabilidadeUsuario(id, novaHabilidade);
+        return ResponseEntity.noContent().build();
+    }
 }

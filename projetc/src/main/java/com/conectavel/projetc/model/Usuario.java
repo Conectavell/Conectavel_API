@@ -51,6 +51,9 @@ public class Usuario {
 	@Column(nullable = true, length = 120)
 	private String experienciaUsuario;
 
+	@Column(nullable = true, length = 120)
+	private String habilidadeUsuario;
+
 	@Column(nullable = true, length = 255)
 	private String fotoPerfilPath = "'./assets/fotosUsuarios/Profile.jpeg'";
 
@@ -167,12 +170,14 @@ public class Usuario {
 		this.tipoPerfil = tipoPerfil;
 	}
 
-	public String getSobreUsuario() {
-		return sobreUsuario;
+
+
+	public String getFotoPerfilPath() {
+		return fotoPerfilPath;
 	}
 
-	public void setSobreUsuario(String sobreUsuario) {
-		this.sobreUsuario = sobreUsuario;
+	public void setFotoPerfilPath(String fotoPerfilPath) {
+		this.fotoPerfilPath = fotoPerfilPath;
 	}
 
 	public String getExperienciaUsuario() {
@@ -183,11 +188,19 @@ public class Usuario {
 		this.experienciaUsuario = experienciaUsuario;
 	}
 
-	public String getFotoPerfilPath() {
-		return fotoPerfilPath;
+	public String getSobreUsuario() {
+		return sobreUsuario;
 	}
 
-	public void setFotoPerfilPath(String fotoPerfilPath) {
-		this.fotoPerfilPath = fotoPerfilPath;
+	public void setSobreUsuario(String sobreUsuario) {
+		this.sobreUsuario = sobreUsuario;
+	}
+
+	public String getHabilidadeUsuario() {
+		return habilidadeUsuario;
+	}
+
+	public void setHabilidadeUsuario(String habilidadeUsuario) {
+		this.habilidadeUsuario = habilidadeUsuario;
 	}
 }
