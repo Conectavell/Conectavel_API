@@ -1,6 +1,7 @@
 package com.conectavel.projetc.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class Habilidades {
     private String descricaoHabilidade;
 
     @ManyToMany(mappedBy = "habilidades")
+    @JsonBackReference
     private List<Usuario> usuario;
 
     public Habilidades() {
