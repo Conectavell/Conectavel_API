@@ -67,6 +67,10 @@ public class Usuario {
 	@JsonManagedReference
 	private List<Habilidades> habilidades;
 
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private List<Postagem> postagems;
+
 	public List<Habilidades> getHabilidades() {
 		return habilidades;
 	}
