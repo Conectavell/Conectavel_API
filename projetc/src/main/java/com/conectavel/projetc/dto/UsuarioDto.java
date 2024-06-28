@@ -4,6 +4,7 @@ import com.conectavel.projetc.model.TipoPerfil;
 import jakarta.persistence.Column;
 
 import java.sql.Date;
+import java.util.List;
 
 public class UsuarioDto {
 
@@ -20,6 +21,15 @@ public class UsuarioDto {
     private String sobreUsuario;
     private String experienciaUsuario;
     private EnderecoDto enderecoDto;
+    private List<Long> habilidades;
+
+    public List<Long> getHabilidades() {
+        return habilidades;
+    }
+
+    public void setHabilidades(List<Long> habilidades) {
+        this.habilidades = habilidades;
+    }
     private String fotoPerfilPath;
 
     public String getNomeUsuario() {

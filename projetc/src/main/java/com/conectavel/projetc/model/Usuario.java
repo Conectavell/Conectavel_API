@@ -1,6 +1,7 @@
 package com.conectavel.projetc.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -60,6 +61,18 @@ public class Usuario {
 	@JoinColumn(name="idEndereco") //  @JoinColumn(name = "idEndereco"): Especifica que a coluna idEndereco na tabela Usuario será usada como chave estrangeira para associar o Usuario ao Endereco.
 	@JsonManagedReference // evita loop em postman
 	private Endereco endereco;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "Habilidades_Usuario", joinColumns = {@JoinColumn(name = "idUsuario")}, inverseJoinColumns = {@JoinColumn(name = "idHabilidade")})
+	private List<Habilidades> habilidades;
+
+	public List<Habilidades> getHabilidades() {
+		return habilidades;
+	}
+
+	public void setHabilidades(List<Habilidades> habilidades) {
+		this.habilidades = habilidades;
+	}
 
 	public Endereco getEndereco() {
 		return endereco;
