@@ -61,6 +61,7 @@ public class Usuario {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "Habilidades_Usuario", joinColumns = {@JoinColumn(name = "idUsuario")}, inverseJoinColumns = {@JoinColumn(name = "idHabilidade")})
+	@JsonManagedReference
 	private List<Habilidades> habilidades;
 
 	public List<Habilidades> getHabilidades() {

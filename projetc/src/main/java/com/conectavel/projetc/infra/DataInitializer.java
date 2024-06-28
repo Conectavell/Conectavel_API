@@ -37,8 +37,9 @@ public class DataInitializer {
                 Habilidades habilidadeTres = new Habilidades("\uD83D\uDCFA Manutenção de televisores", "Manutenção de Televisões.");
                 Habilidades habilidadeQuatro = new Habilidades("\uD83C\uDF9B\uFE0F Manutenção de eletrodomésticos", "Manutenção de aparelhos de casa.");
                 Habilidades habilidadeCinco = new Habilidades("\uD83D\uDDA5\uFE0F Manutenção de computadores", "Manutenção de computadores e notebooks.");
+                Habilidades habilidadeSeis = new Habilidades("Cliente", "Perfil de Cliente.");
 
-                Habilidades[] Itens = {habilidadeUm, habilidadeDois, habilidadeTres, habilidadeQuatro, habilidadeCinco};
+                Habilidades[] Itens = {habilidadeUm, habilidadeDois, habilidadeTres, habilidadeQuatro, habilidadeCinco, habilidadeSeis};
 
                 for(Habilidades i: Itens){
                     habilidadesRepository.save(i);
