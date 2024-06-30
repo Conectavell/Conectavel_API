@@ -62,7 +62,7 @@ public class Usuario {
 	@JsonManagedReference // evita loop em postman
 	private Endereco endereco;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "Habilidades_Usuario", joinColumns = {@JoinColumn(name = "idUsuario")}, inverseJoinColumns = {@JoinColumn(name = "idHabilidade")})
 	@JsonManagedReference
 	private List<Habilidades> habilidades;

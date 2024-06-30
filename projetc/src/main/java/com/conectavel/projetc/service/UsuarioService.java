@@ -1,6 +1,7 @@
 package com.conectavel.projetc.service;
 
 import com.conectavel.projetc.dto.EnderecoDto;
+import com.conectavel.projetc.dto.FiltrarDto;
 import com.conectavel.projetc.dto.UsuarioDto;
 import com.conectavel.projetc.model.Endereco;
 import com.conectavel.projetc.model.Habilidades;
@@ -65,12 +66,12 @@ public class UsuarioService {
 		/*Habilidades habilidades = habilidadesRepository.findById(usuarioDto.getHabilidades()).orElseThrow(() -> new IllegalArgumentException("Invalid Habilidade ID: "+ usuarioDto.getHabilidades()));
 		novoUsuario.setHabilidades(habilidades);*/
 
-		List<Habilidades> habilidadesList = new ArrayList<>();
-		for(Long idHabilidade : usuarioDto.getHabilidades()){
-			Habilidades habilidades = habilidadesRepository.findById(idHabilidade)
-					.orElseThrow(() -> new IllegalArgumentException("Invalid habilidade ID: "+ idHabilidade));
-			habilidadesList.add(habilidades);
-		}
+        List<Habilidades> habilidadesList = new ArrayList<>();
+        for(Long idHabilidade : usuarioDto.getHabilidades()){
+            Habilidades habilidades = habilidadesRepository.findById(idHabilidade)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid habilidade ID: "+ idHabilidade));
+            habilidadesList.add(habilidades);
+        }
 
 		novoUsuario.setHabilidades(habilidadesList);
 
@@ -122,6 +123,10 @@ public class UsuarioService {
 
 	public void atualizarEmailUsuario(Long id, String novoEmail){
 		usuarioRepository.setEmailUsuarioById(novoEmail, id);
+	}
+
+	public List<FiltrarDto> filtrarPerfil(Long valorHabilidade){
+		return usuarioRepository.filtraPrestadorDeServico(valorHabilidade);
 	}
 
 	public Long getIdByEmailAndSenha(String email, String senha){
@@ -227,4 +232,5 @@ public class UsuarioService {
     public void atualizarHabilidadeUsuario(Long id, String novaHabilidadeUsuario) {
         usuarioRepository.setHabilidadeUsuarioById(novaHabilidadeUsuario, id);
     }
+
 }
