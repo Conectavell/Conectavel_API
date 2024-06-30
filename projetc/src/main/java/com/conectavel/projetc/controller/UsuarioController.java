@@ -3,7 +3,7 @@ package com.conectavel.projetc.controller;
 import java.util.List;
 import java.util.Optional;
 
-import com.conectavel.projetc.dto.LoginRequest;
+import com.conectavel.projetc.dto.FiltrarDto;
 import com.conectavel.projetc.dto.UsuarioDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +52,12 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> usuarioServices(@PathVariable Long id, @RequestBody Usuario usuario){
 		Usuario usuarioAtualizado = usuarioService.atualizarUsuario(id, usuario);
 		return ResponseEntity.ok(usuarioAtualizado);
+	}
+
+	@GetMapping("/filtarUsuario")
+	public ResponseEntity<List<FiltrarDto>> filtrarUsuario(@RequestParam Long valorHabilidade){
+		List<FiltrarDto> usuarios = usuarioService.filtrarPerfil(valorHabilidade);
+		return ResponseEntity.ok(usuarios);
 	}
 	
 	@DeleteMapping("/usuarios/{id}")

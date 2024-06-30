@@ -1,6 +1,7 @@
 package com.conectavel.projetc.service;
 
 import com.conectavel.projetc.dto.EnderecoDto;
+import com.conectavel.projetc.dto.FiltrarDto;
 import com.conectavel.projetc.dto.UsuarioDto;
 import com.conectavel.projetc.model.Endereco;
 import com.conectavel.projetc.model.Habilidades;
@@ -126,6 +127,10 @@ public class UsuarioService {
 		usuarioRepository.setEmailUsuarioById(novoEmail, id);
 	}
 
+	public List<FiltrarDto> filtrarPerfil(Long valorHabilidade){
+		return usuarioRepository.filtraPrestadorDeServico(valorHabilidade);
+	}
+
 	public Long getIdByEmailAndSenha(String email, String senha){
 		return usuarioRepository.findIdByEmailAndSenha(email, senha);
 	}
@@ -202,4 +207,5 @@ public class UsuarioService {
 		usuarioRepository.deleteById(id);
 		return ResponseEntity.ok("Usuario removido com sucesso...");
 	}
+
 }
