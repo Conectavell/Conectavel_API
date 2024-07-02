@@ -55,14 +55,14 @@ public class Usuario {
 	private String habilidadeUsuario;
 
 	@Column(nullable = true, length = 255)
-	private String fotoPerfilPath = "'./assets/fotosUsuarios/Profile.jpeg'";
+	private String fotoPerfilPath;
 
 	@OneToOne(cascade = CascadeType.ALL) //@OneToOne: Define um relacionamento um para um entre Usuario e Endereco.
 	@JoinColumn(name="idEndereco") //  @JoinColumn(name = "idEndereco"): Especifica que a coluna idEndereco na tabela Usuario será usada como chave estrangeira para associar o Usuario ao Endereco.
 	@JsonManagedReference // evita loop em postman
 	private Endereco endereco;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@JoinTable(name = "Habilidades_Usuario", joinColumns = {@JoinColumn(name = "idUsuario")}, inverseJoinColumns = {@JoinColumn(name = "idHabilidade")})
 	@JsonManagedReference
 	private List<Habilidades> habilidades;
