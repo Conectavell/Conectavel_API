@@ -154,6 +154,10 @@ public class UsuarioService {
 	public void deletarUsuario(Long id) {
 		usuarioRepository.deleteById(id);
 	}
+
+	public List<FiltrarDto> filtrarPerfil(Long valorHabilidade){
+		return usuarioRepository.filtraPrestadorDeServico(valorHabilidade);
+	}
 	
 	//Método responsável por salvar cadastro;
 	public ResponseEntity<Usuario> salvarUsuario1(@RequestBody Usuario usuario)
