@@ -27,6 +27,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query("UPDATE Usuario u SET emailUsuario = :email WHERE u.idUsuario = :id")
     void setEmailUsuarioById(@Param("email") String email, @Param("id") Long tipo);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Usuario u set nomeUsuario = :nome WHERE u.idUsuario = :id")
+    void setNomeUsuarioById(@Param("nome") String nome, @Param("id") Long id);
+
+
     @Query("SELECT new com.conectavel.projetc.dto.FiltrarDto(u.idUsuario, u.nomeUsuario, u.fotoPerfilPath) FROM Usuario u JOIN u.habilidades h WHERE h.idHabilidade = :valorHabilidade")
     List<FiltrarDto> filtraPrestadorDeServico(@Param("valorHabilidade") Long valorHabilidade);
 }

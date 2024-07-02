@@ -127,6 +127,8 @@ public class UsuarioService {
 		usuarioRepository.setEmailUsuarioById(novoEmail, id);
 	}
 
+	public void atualizarNomeUsuario(Long id, String nome){ usuarioRepository.setNomeUsuarioById(nome, id);}
+
 	public List<FiltrarDto> filtrarPerfil(Long valorHabilidade){
 		return usuarioRepository.filtraPrestadorDeServico(valorHabilidade);
 	}

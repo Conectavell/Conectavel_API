@@ -82,4 +82,10 @@ public class UsuarioController {
 		usuarioService.atualizarEmailUsuario(id, novoEmail);
 		return ResponseEntity.noContent().build();
 	}
+
+	@PutMapping("{id}/atualizarNome")
+	public ResponseEntity<Void> atualizarNome(@PathVariable Long id, @RequestParam String nome){
+		usuarioService.atualizarNomeUsuario(id, nome);
+		return ResponseEntity.noContent().build();
+	}
 }
